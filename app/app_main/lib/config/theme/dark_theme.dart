@@ -1,10 +1,16 @@
-import 'package:app_main/config/theme/theme_constants.dart';
 import 'package:flutter/material.dart';
 
+import 'color/color.dart';
 import 'i_theme.dart';
 
 final class DarkTheme extends BaseTheme {
-  const DarkTheme({super.brightness = Brightness.dark});
+  const DarkTheme({
+    super.brightness = Brightness.dark,
+    super.colorPallet = const ColorPallet(
+      iconFormBackground: Color(0xFFE8F8FF),
+      iconForm: Color(0xFF91CCE6),
+    ),
+  });
 
   @override
   ThemeData getTheme() {
@@ -14,20 +20,20 @@ final class DarkTheme extends BaseTheme {
       appBarTheme: appBarTheme,
       useMaterial3: true,
       textTheme: textTheme,
-      iconButtonTheme: const IconButtonThemeData(
+      inputDecorationTheme: inputDecorationTheme,
+      elevatedButtonTheme: const ElevatedButtonThemeData(
         style: ButtonStyle(
-          foregroundColor:
-              MaterialStatePropertyAll<Color>(ThemeConstatnts.cardDark),
-          backgroundColor:
-              MaterialStatePropertyAll<Color>(ThemeConstatnts.iconDark),
+          backgroundColor: MaterialStatePropertyAll<Color>(
+            Color(0xFF76996E),
+          ),
+          textStyle: MaterialStatePropertyAll<TextStyle>(
+            TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          foregroundColor: MaterialStatePropertyAll<Color>(Colors.black),
         ),
-      ),
-      iconTheme: const IconThemeData(
-        color: ThemeConstatnts.iconDark,
-      ),
-      cardTheme: const CardTheme(
-        elevation: 0,
-        color: ThemeConstatnts.cardDark,
       ),
     );
   }

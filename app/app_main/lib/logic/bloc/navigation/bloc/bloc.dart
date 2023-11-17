@@ -1,4 +1,4 @@
-import 'package:app_main/logic/dependencyInjection/controllers_set_up.dart';
+import 'package:app_main/logic/dependency_injection/controllers_set_up.dart';
 import 'package:app_main/view/screens/screens.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';

@@ -21,4 +21,16 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get titleSend => 'Send';
+
+  @override
+  String get titleWait => 'Please wait';
+
+  @override
+  String get titleError => 'Error';
+
+  @override
+  String get errorRequiredField => 'This field is required';
+
+  @override
+  String get errorIncorrectEmail => 'Email is incorrect';
 }

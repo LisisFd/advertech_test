@@ -4,5 +4,9 @@
   "titleName": "Name",
   "titleEmail": "Email",
   "titleMessage": "Message",
-  "titleSend": "Send"
+  "titleSend": "Send",
+  "titleWait": "Please wait",
+  "titleError": "Error",
+  "errorRequiredField": "This field is required",
+  "errorIncorrectEmail": "Email is incorrect"
 }

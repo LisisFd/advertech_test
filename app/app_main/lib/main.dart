@@ -12,9 +12,12 @@ void runFullApp() {
 
 void _runDependencyInjection(
     ControllersSetUp cInstance, ServicesSetUp sInstance) {
+  //Set up services
+  sInstance.addApiServiceFeature();
+  //Set up Bloc
   cInstance.addThemeProvider();
   cInstance.addNavigationProvider();
-  sInstance.addApiServiceFeature();
+  cInstance.addContactScreenBloc();
 }
 
 class MyApp extends StatelessWidget {
