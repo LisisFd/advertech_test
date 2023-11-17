@@ -4,8 +4,6 @@ import 'package:app_main/logic/controllers_set_up.dart';
 import 'package:app_main/logic/logic.dart';
 import 'package:flutter/material.dart';
 
-import 'logic/navigation/navigation.dart';
-
 void runFullApp() {
   final ControllersSetUp controllersSetUp = ControllersSetUp.instance;
   _runDependencyInjection(controllersSetUp);

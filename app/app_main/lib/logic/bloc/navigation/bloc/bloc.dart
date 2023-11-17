@@ -1,9 +1,8 @@
 import 'package:app_main/logic/controllers_set_up.dart';
+import 'package:app_main/view/screens/screens.dart';
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-
-import '../../../view/view.dart';
 
 export 'bloc.dart';
 

@@ -1,2 +1,2 @@
 //GENERATED BARREL FILE
-export 'theme/theme.dart';
+export './bloc/bloc.dart';
