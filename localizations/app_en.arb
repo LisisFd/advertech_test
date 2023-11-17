@@ -1,9 +1,8 @@
 {
   "appName": "appTest",
-  "titleCardPeriod": "Track my period",
-  "descriptionCardPeriod": "contraception and wellbeing",
-  "titleCardPregnant": "Get pregnant",
-  "descriptionCardPregnant": "learn about reproductive health",
-  "titleBirthDay": "Log in your date of birth",
-  "titleButtonNext": "Next"
+  "titleContactUs": "Contact Us",
+  "titleName": "Name",
+  "titleEmail": "Email",
+  "titleMessage": "Message",
+  "titleSend": "Send"
 }

@@ -1,5 +1,5 @@
 import 'package:app_main/config/config.dart';
-import 'package:app_main/logic/controllers_set_up.dart';
+import 'package:app_main/logic/dependencyInjection/controllers_set_up.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 

@@ -8,20 +8,17 @@ class AppLocalizationsEn extends AppLocalizations {
   String get appName => 'appTest';
 
   @override
-  String get titleCardPeriod => 'Track my period';
+  String get titleContactUs => 'Contact Us';
 
   @override
-  String get descriptionCardPeriod => 'contraception and wellbeing';
+  String get titleName => 'Name';
 
   @override
-  String get titleCardPregnant => 'Get pregnant';
+  String get titleEmail => 'Email';
 
   @override
-  String get descriptionCardPregnant => 'learn about reproductive health';
+  String get titleMessage => 'Message';
 
   @override
-  String get titleBirthDay => 'Log in your date of birth';
-
-  @override
-  String get titleButtonNext => 'Next';
+  String get titleSend => 'Send';
 }
