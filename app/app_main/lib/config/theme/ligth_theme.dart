@@ -20,21 +20,24 @@ final class LightTheme extends BaseTheme {
       appBarTheme: appBarTheme,
       useMaterial3: true,
       textTheme: textTheme,
-      iconButtonTheme: const IconButtonThemeData(
+      elevatedButtonTheme: const ElevatedButtonThemeData(
         style: ButtonStyle(
-          foregroundColor:
-              MaterialStatePropertyAll<Color>(ThemeConstatnts.cardLigth),
-          backgroundColor:
-              MaterialStatePropertyAll<Color>(ThemeConstatnts.iconLigth),
+          backgroundColor: MaterialStatePropertyAll<Color>(
+            Color(0xFF986D8E),
+          ),
+          padding: MaterialStatePropertyAll<EdgeInsetsGeometry>(
+            EdgeInsets.symmetric(vertical: 15),
+          ),
+          textStyle: MaterialStatePropertyAll<TextStyle>(
+            TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.w500,
+            ),
+          ),
+          foregroundColor: MaterialStatePropertyAll<Color>(Colors.white),
         ),
       ),
-      iconTheme: const IconThemeData(
-        color: ThemeConstatnts.iconLigth,
-      ),
-      cardTheme: const CardTheme(
-        elevation: 0,
-        color: ThemeConstatnts.cardLigth,
-      ),
+      inputDecorationTheme: inputDecorationTheme,
     );
   }
 
@@ -47,7 +50,7 @@ final class LightTheme extends BaseTheme {
         ),
         titleMedium: TextStyle(
           color: Colors.black,
-          fontSize: 25,
+          fontSize: 30,
           fontWeight: FontWeight.w500,
         ),
         titleSmall: TextStyle(

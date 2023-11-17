@@ -20,7 +20,10 @@ class IconTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final ITheme theme = ThemeBloc.getCurrentTheme(context);
-    const double iconContainer = 50.0;
+    const double iconContainer = 40.0;
+    const padding = SizedBox(
+      width: 30,
+    );
     return Row(
       mainAxisSize: MainAxisSize.min,
       children: [
@@ -34,9 +37,10 @@ class IconTextFormField extends StatelessWidget {
           child: Icon(
             Icons.lock_open,
             color: theme.colorPallet.iconForm,
-            size: iconContainer / 1.5,
+            size: iconContainer / 2.2,
           ),
         ),
+        padding,
         Expanded(
           child: TextFormField(
             decoration: InputDecoration(labelText: title),

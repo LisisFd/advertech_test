@@ -15,7 +15,11 @@ class ScaffoldMyApp extends StatelessWidget {
     final ITheme theme = ThemeBloc.getCurrentTheme(context);
     return Scaffold(
       appBar: AppBar(
-        title: Text(appBarTitle),
+        centerTitle: true,
+        title: Text(
+          appBarTitle,
+          style: theme.getTheme().textTheme.titleMedium,
+        ),
       ),
       body: Stack(
         children: [

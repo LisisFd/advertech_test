@@ -12,10 +12,4 @@ final class ThemeConstatnts {
   static const double appWidth = 390.0;
   static const backgroundLigth = Color(0xFFFFFFFF);
   static const backgroundDark = Color(0x00000000);
-  static const cardLigth = Color(0xFFFFEFEF);
-  static const cardDark = Color(0xFFEFFFFF);
-  static const iconLigth = Color(0xFF53538A);
-  static const iconDark = Color(0xFF8A8A53);
-  static const EdgeInsets defaultCardPadding =
-      EdgeInsets.symmetric(vertical: 20, horizontal: 10);
 }

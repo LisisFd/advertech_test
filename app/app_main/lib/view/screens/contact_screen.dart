@@ -66,6 +66,7 @@ class ContactScreen extends StatelessWidget {
     const padding = SizedBox(
       height: 10,
     );
+
     final localization = context.localization();
     final ITheme theme = ThemeBloc.getCurrentTheme(context);
     final TextTheme textTheme = theme.getTheme().textTheme;
@@ -75,13 +76,15 @@ class ContactScreen extends StatelessWidget {
         Widget saveButton = state is LoadingState
             ? _loadingButton(context)
             : _activeButton(context);
-        return Center(
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
           child: Column(
             children: [
               Form(
                 key: _formKey,
                 child: Column(
                   children: [
+                    padding,
                     IconTextFormField(
                       key: _name,
                       title: localization.titleName,
@@ -89,19 +92,22 @@ class ContactScreen extends StatelessWidget {
                           _nullOrEmptyValidate(context, value),
                       onSaved: _onSave,
                     ),
+                    padding,
                     IconTextFormField(
                       key: _email,
                       title: localization.titleEmail,
                       validator: (value) => _mailValidate(context, value),
                       onSaved: _onSave,
                     ),
+                    padding,
                     IconTextFormField(
                       key: _message,
                       title: localization.titleMessage,
                       validator: (value) =>
                           _nullOrEmptyValidate(context, value),
                       onSaved: _onSave,
-                    )
+                    ),
+                    padding,
                   ],
                 ),
               ),
@@ -116,7 +122,10 @@ class ContactScreen extends StatelessWidget {
                 ),
               ),
               padding,
-              saveButton,
+              SizedBox(
+                width: double.maxFinite,
+                child: saveButton,
+              ),
             ],
           ),
         );
