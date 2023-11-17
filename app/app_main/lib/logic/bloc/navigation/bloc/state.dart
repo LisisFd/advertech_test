@@ -11,7 +11,7 @@ sealed class NavigationState extends Equatable {
 final class NavigationContactScreen extends NavigationState {
   @override
   Widget getPage() {
-    return const ContactScreen();
+    return ContactScreen();
   }
 
   @override

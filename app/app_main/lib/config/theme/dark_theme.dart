@@ -1,10 +1,17 @@
 import 'package:app_main/config/theme/theme_constants.dart';
 import 'package:flutter/material.dart';
 
+import 'color/color.dart';
 import 'i_theme.dart';
 
 final class DarkTheme extends BaseTheme {
-  const DarkTheme({super.brightness = Brightness.dark});
+  const DarkTheme({
+    super.brightness = Brightness.dark,
+    super.colorPallet = const ColorPallet(
+      iconFormBackground: Color(0xFFE8F8FF),
+      iconForm: Color(0xFF91CCE6),
+    ),
+  });
 
   @override
   ThemeData getTheme() {

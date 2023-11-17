@@ -1,10 +1,14 @@
-import 'package:app_main/config/theme/theme_constants.dart';
+import 'package:app_main/config/config.dart';
 import 'package:flutter/material.dart';
 
-import 'i_theme.dart';
-
 final class LightTheme extends BaseTheme {
-  const LightTheme({super.brightness = Brightness.light});
+  const LightTheme({
+    super.brightness = Brightness.light,
+    super.colorPallet = const ColorPallet(
+      iconFormBackground: Color(0xFFFFF5E9),
+      iconForm: Color(0xFFE5BE90),
+    ),
+  });
 
   @override
   ThemeData getTheme() {

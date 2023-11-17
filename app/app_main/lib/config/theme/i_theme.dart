@@ -1,15 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'color/color.dart';
+
 abstract interface class ITheme {
   final Brightness brightness;
-
-  const ITheme({required this.brightness});
+  final ColorPallet colorPallet;
+  const ITheme({
+    required this.brightness,
+    required this.colorPallet,
+  });
   ThemeData getTheme();
 }
 
 abstract base class BaseTheme extends ITheme {
-  const BaseTheme({required super.brightness});
+  const BaseTheme({
+    required super.brightness,
+    required super.colorPallet,
+  });
 
   AppBarTheme get appBarTheme => AppBarTheme(
         color: Colors.transparent,

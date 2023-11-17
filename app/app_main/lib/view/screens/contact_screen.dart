@@ -6,7 +6,11 @@ import 'package:flutter/material.dart';
 import '../view.dart';
 
 class ContactScreen extends StatelessWidget {
-  const ContactScreen({super.key});
+  final GlobalKey<FormState> _formKey = GlobalKey();
+  final Key _name = const ValueKey('contact.name');
+  final Key _email = const ValueKey('contact.email');
+  final Key _message = const ValueKey('contact.message');
+  ContactScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -14,16 +18,35 @@ class ContactScreen extends StatelessWidget {
     final ITheme theme = ThemeBloc.getCurrentTheme(context);
     final TextTheme textTheme = theme.getTheme().textTheme;
     final Size deviceSize = MediaQuery.of(context).size;
-    return const ScaffoldMyApp(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            SizedBox(),
-          ],
-        ),
+    return ScaffoldMyApp(
+      appBarTitle: localization.titleContactUs,
+      body: Column(
+        children: [
+          Form(
+            key: _formKey,
+            child: Column(
+              children: [
+                IconTextFormField(
+                  key: _name,
+                  title: localization.titleName,
+                ),
+                IconTextFormField(
+                  key: _email,
+                  title: localization.titleName,
+                ),
+                IconTextFormField(
+                  key: _message,
+                  title: localization.titleName,
+                )
+              ],
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(localization.titleSend),
+          ),
+        ],
       ),
-      appBarTitle: 'Title',
     );
   }
 }
