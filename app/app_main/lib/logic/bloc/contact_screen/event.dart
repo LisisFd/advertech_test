@@ -11,6 +11,10 @@ class SendEvent extends ContactScreenEvent {
   const SendEvent(this.formContactInformation);
 }
 
+class CompleteEvent extends ContactScreenEvent {
+  const CompleteEvent();
+}
+
 class ResetEvent extends ContactScreenEvent {
   const ResetEvent();
 }
