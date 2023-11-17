@@ -6,8 +6,10 @@ abstract class ContactScreenState extends Equatable {
   const ContactScreenState();
 }
 
-class CorrectState extends ContactScreenState {}
+class InitialState extends ContactScreenState {}
 
 class LoadingState extends ContactScreenState {}
 
 class ErrorState extends ContactScreenState {}
+
+class SuccessState extends ContactScreenState {}
