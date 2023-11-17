@@ -5,14 +5,14 @@ import 'package:flutter/material.dart';
 class IconTextFormField extends StatelessWidget {
   final String title;
   final String? Function(String?)? validator;
-  final void Function(Key, String)? onSaved;
+  final void Function(Key, String)? onChanged;
   const IconTextFormField(
-      {super.key, required this.title, this.validator, this.onSaved});
+      {super.key, required this.title, this.validator, this.onChanged});
 
-  String? _onSaved(String? value) {
+  String? _onChanged(String? value) {
     Key? widgetKey = key;
     if (value != null && widgetKey != null) {
-      onSaved?.call(widgetKey, value);
+      onChanged?.call(widgetKey, value);
     }
     return null;
   }
@@ -45,7 +45,7 @@ class IconTextFormField extends StatelessWidget {
           child: TextFormField(
             decoration: InputDecoration(labelText: title),
             validator: validator,
-            onSaved: _onSaved,
+            onChanged: _onChanged,
           ),
         ),
       ],

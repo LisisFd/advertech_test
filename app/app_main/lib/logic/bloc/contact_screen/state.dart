@@ -8,6 +8,8 @@ abstract class ContactScreenState extends Equatable {
 
 class InitialState extends ContactScreenState {}
 
+class CorrectState extends ContactScreenState {}
+
 class LoadingState extends ContactScreenState {}
 
 class ErrorState extends ContactScreenState {}

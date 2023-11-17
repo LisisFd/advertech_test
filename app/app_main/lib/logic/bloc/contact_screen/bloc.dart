@@ -23,9 +23,15 @@ class ContactScreenBloc extends Bloc<ContactScreenEvent, ContactScreenState> {
 
   ContactScreenBloc({required IApiService apiService}) : super(InitialState()) {
     _apiService = apiService;
+
     on<ResetEvent>((event, emit) {
       emit(InitialState());
     });
+
+    on<CompleteEvent>((event, emit) {
+      emit(CorrectState());
+    });
+
     on<SendEvent>(_sendProcessing);
   }
 

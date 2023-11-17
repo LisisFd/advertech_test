@@ -40,25 +40,29 @@ class ContactScreen extends StatelessWidget {
     return result;
   }
 
-  void _sendPress(BuildContext context) {
-    ContactScreenBloc bloc = BlocProvider.of<ContactScreenBloc>(context);
+  void _onChanged(Key key, String value, BuildContext context) {
+    _formResult[key] = value;
     FormState? formState = _formKey.currentState;
     if (formState == null) return;
+    ContactScreenBloc bloc = BlocProvider.of<ContactScreenBloc>(context);
     if (formState.validate()) {
-      formState.save();
-      FormContactInformation information = FormContactInformation(
-        name: _formResult.getNotNullString(_name),
-        email: _formResult.getNotNullString(_email),
-        message: _formResult.getNotNullString(_message),
-      );
-      bloc.add(
-        SendEvent(information),
-      );
+      bloc.add(const CompleteEvent());
+    } else {
+      bloc.add(const ResetEvent());
     }
   }
 
-  void _onSave(Key key, String value) {
-    _formResult[key] = value;
+  void _sendPress(BuildContext context) {
+    ContactScreenBloc bloc = BlocProvider.of<ContactScreenBloc>(context);
+    bloc.add(const CompleteEvent());
+    FormContactInformation information = FormContactInformation(
+      name: _formResult.getNotNullString(_name),
+      email: _formResult.getNotNullString(_email),
+      message: _formResult.getNotNullString(_message),
+    );
+    bloc.add(
+      SendEvent(information),
+    );
   }
 
   @override
@@ -75,7 +79,9 @@ class ContactScreen extends StatelessWidget {
       body: ContactScreenBloc.build(builder: (context, state) {
         Widget saveButton = state is LoadingState
             ? _loadingButton(context)
-            : _activeButton(context);
+            : state is InitialState
+                ? _disableButton(context)
+                : _activeButton(context);
         Widget postStatus = state is ErrorState
             ? Text(
                 localization.titleError,
@@ -105,14 +111,16 @@ class ContactScreen extends StatelessWidget {
                       title: localization.titleName,
                       validator: (value) =>
                           _nullOrEmptyValidate(context, value),
-                      onSaved: _onSave,
+                      onChanged: (key, value) =>
+                          _onChanged(key, value, context),
                     ),
                     padding,
                     IconTextFormField(
                       key: _email,
                       title: localization.titleEmail,
                       validator: (value) => _mailValidate(context, value),
-                      onSaved: _onSave,
+                      onChanged: (key, value) =>
+                          _onChanged(key, value, context),
                     ),
                     padding,
                     IconTextFormField(
@@ -120,7 +128,8 @@ class ContactScreen extends StatelessWidget {
                       title: localization.titleMessage,
                       validator: (value) =>
                           _nullOrEmptyValidate(context, value),
-                      onSaved: _onSave,
+                      onChanged: (key, value) =>
+                          _onChanged(key, value, context),
                     ),
                     padding,
                   ],
@@ -157,6 +166,14 @@ class ContactScreen extends StatelessWidget {
       child: Text(
         localization.titleWait,
       ),
+    );
+  }
+
+  Widget _disableButton(BuildContext context) {
+    final localization = context.localization();
+    return ElevatedButton(
+      onPressed: null,
+      child: Text(localization.titleSend),
     );
   }
 }
