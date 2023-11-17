@@ -31,6 +31,7 @@ class ContactScreenBloc extends Bloc<ContactScreenEvent, ContactScreenState> {
 
   Future<void> _sendProcessing(
       SendEvent event, Emitter<ContactScreenState> emit) async {
+    emit(LoadingState());
     FormContactInformation information = event.formContactInformation;
     Contact contact = Contact(
         name: information.name,

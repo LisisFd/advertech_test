@@ -1,6 +1,5 @@
 import 'package:app_main/localization.dart';
 import 'package:app_main/localizations/generated/app_localizations.dart';
-import 'package:app_main/logic/bloc/contact_screen/bloc.dart';
 import 'package:app_main/logic/logic.dart';
 import 'package:flutter/material.dart';
 
