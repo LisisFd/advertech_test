@@ -21,10 +21,10 @@ class ContactScreenBloc extends Bloc<ContactScreenEvent, ContactScreenState> {
     );
   }
 
-  ContactScreenBloc({required IApiService apiService}) : super(CorrectState()) {
+  ContactScreenBloc({required IApiService apiService}) : super(InitialState()) {
     _apiService = apiService;
     on<ResetEvent>((event, emit) {
-      emit(CorrectState());
+      emit(InitialState());
     });
     on<SendEvent>(_sendProcessing);
   }
@@ -39,7 +39,7 @@ class ContactScreenBloc extends Bloc<ContactScreenEvent, ContactScreenState> {
         message: information.message);
     bool result = await _apiService.post(contact);
     if (result) {
-      emit(CorrectState());
+      emit(SuccessState());
     } else {
       emit(ErrorState());
     }

@@ -76,6 +76,21 @@ class ContactScreen extends StatelessWidget {
         Widget saveButton = state is LoadingState
             ? _loadingButton(context)
             : _activeButton(context);
+        Widget postStatus = state is ErrorState
+            ? Text(
+                localization.titleError,
+                style: textTheme.bodyMedium?.copyWith(
+                  color: theme.getTheme().colorScheme.error,
+                ),
+              )
+            : state is SuccessState
+                ? Text(
+                    localization.titleSuccess,
+                    style: textTheme.bodyMedium?.copyWith(
+                      color: Colors.green,
+                    ),
+                  )
+                : const SizedBox.shrink();
         return Padding(
           padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 30),
           child: Column(
@@ -113,14 +128,8 @@ class ContactScreen extends StatelessWidget {
               ),
               padding,
               Visibility(
-                visible: state is ErrorState,
-                child: Text(
-                  localization.titleError,
-                  style: textTheme.bodyMedium?.copyWith(
-                    color: theme.getTheme().colorScheme.error,
-                  ),
-                ),
-              ),
+                  visible: state is ErrorState || state is SuccessState,
+                  child: postStatus),
               padding,
               SizedBox(
                 width: double.maxFinite,

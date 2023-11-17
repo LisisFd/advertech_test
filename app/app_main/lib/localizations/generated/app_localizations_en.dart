@@ -29,6 +29,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get titleError => 'Error';
 
   @override
+  String get titleSuccess => 'Success';
+
+  @override
   String get errorRequiredField => 'This field is required';
 
   @override

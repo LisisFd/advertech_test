@@ -139,6 +139,12 @@ abstract class AppLocalizations {
   /// **'Error'**
   String get titleError;
 
+  /// No description provided for @titleSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Success'**
+  String get titleSuccess;
+
   /// No description provided for @errorRequiredField.
   ///
   /// In en, this message translates to:
