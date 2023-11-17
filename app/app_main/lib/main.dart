@@ -1,18 +1,20 @@
 import 'package:app_main/localization.dart';
 import 'package:app_main/localizations/generated/app_localizations.dart';
-import 'package:app_main/logic/controllers_set_up.dart';
 import 'package:app_main/logic/logic.dart';
 import 'package:flutter/material.dart';
 
 void runFullApp() {
   final ControllersSetUp controllersSetUp = ControllersSetUp.instance;
-  _runDependencyInjection(controllersSetUp);
+  final ServicesSetUp servicesSetUp = ServicesSetUp.instance;
+  _runDependencyInjection(controllersSetUp, servicesSetUp);
   runApp(const MyApp());
 }
 
-void _runDependencyInjection(ControllersSetUp instance) {
-  instance.addThemeProvider();
-  instance.addNavigationProvider();
+void _runDependencyInjection(
+    ControllersSetUp cInstance, ServicesSetUp sInstance) {
+  cInstance.addThemeProvider();
+  cInstance.addNavigationProvider();
+  sInstance.addApiServiceFeature();
 }
 
 class MyApp extends StatelessWidget {
